@@ -43,3 +43,5 @@
 **/*.sln
 **/*.sw?
 **/package-lock.json
+
+**/*.iml
