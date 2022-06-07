@@ -1,0 +1,1 @@
+nohup java -Xms256m -Xmx512m -Xx:NewSize=200m -Xx:MaxNewSize=200m -jar /home/deploy/demo/demo.jar > /dev/null 2>&1 &
