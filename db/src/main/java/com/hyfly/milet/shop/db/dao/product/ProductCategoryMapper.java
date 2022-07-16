@@ -1,6 +1,6 @@
-package com.mapper;
+package com.hyfly.milet.shop.db.dao.product;
 
-import com.domain.ProductCategory;
+import com.hyfly.milet.shop.common.po.product.ProductCategory;
 
 public interface ProductCategoryMapper {
     int deleteByPrimaryKey(Short categoryId);

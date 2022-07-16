@@ -1,6 +1,6 @@
-package com.mapper;
+package com.hyfly.milet.shop.db.dao.product;
 
-import com.domain.ProductComment;
+import com.hyfly.milet.shop.common.po.product.ProductComment;
 
 public interface ProductCommentMapper {
     int deleteByPrimaryKey(Integer commentId);

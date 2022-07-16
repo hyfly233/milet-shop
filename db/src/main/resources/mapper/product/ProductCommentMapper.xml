@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mapper.ProductCommentMapper">
-  <resultMap id="BaseResultMap" type="com.domain.ProductComment">
+<mapper namespace="com.hyfly.milet.shop.db.dao.product.ProductCommentMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.shop.common.po.product.ProductComment">
     <!--@mbg.generated-->
     <!--@Table product_comment-->
     <id column="comment_id" jdbcType="INTEGER" property="commentId" />
@@ -16,12 +16,12 @@
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    comment_id, product_id, order_id, customer_id, title, content, audit_status, audit_time, 
+    comment_id, product_id, order_id, customer_id, title, content, audit_status, audit_time,
     modified_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from product_comment
     where comment_id = #{commentId,jdbcType=INTEGER}
@@ -31,16 +31,16 @@
     delete from product_comment
     where comment_id = #{commentId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="comment_id" keyProperty="commentId" parameterType="com.domain.ProductComment" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="comment_id" keyProperty="commentId" parameterType="com.hyfly.milet.shop.common.po.product.ProductComment" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into product_comment (product_id, order_id, customer_id, 
-      title, content, audit_status, 
+    insert into product_comment (product_id, order_id, customer_id,
+      title, content, audit_status,
       audit_time, modified_time)
-    values (#{productId,jdbcType=INTEGER}, #{orderId,jdbcType=BIGINT}, #{customerId,jdbcType=INTEGER}, 
-      #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{auditStatus,jdbcType=TINYINT}, 
+    values (#{productId,jdbcType=INTEGER}, #{orderId,jdbcType=BIGINT}, #{customerId,jdbcType=INTEGER},
+      #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{auditStatus,jdbcType=TINYINT},
       #{auditTime,jdbcType=TIMESTAMP}, #{modifiedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" keyColumn="comment_id" keyProperty="commentId" parameterType="com.domain.ProductComment" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="comment_id" keyProperty="commentId" parameterType="com.hyfly.milet.shop.common.po.product.ProductComment" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into product_comment
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -96,7 +96,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.domain.ProductComment">
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.shop.common.po.product.ProductComment">
     <!--@mbg.generated-->
     update product_comment
     <set>
@@ -127,7 +127,7 @@
     </set>
     where comment_id = #{commentId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.domain.ProductComment">
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.shop.common.po.product.ProductComment">
     <!--@mbg.generated-->
     update product_comment
     set product_id = #{productId,jdbcType=INTEGER},

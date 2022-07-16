@@ -1,6 +1,6 @@
-package com.mapper;
+package com.hyfly.milet.shop.db.dao.product;
 
-import com.domain.ProductPicInfo;
+import com.hyfly.milet.shop.common.po.product.ProductPicInfo;
 
 public interface ProductPicInfoMapper {
     int deleteByPrimaryKey(Integer productPicId);
