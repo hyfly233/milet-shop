@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.CustomerLevelInfMapper">
+  <resultMap id="BaseResultMap" type="com.domain.CustomerLevelInf">
+    <!--@mbg.generated-->
+    <!--@Table customer_level_inf-->
+    <id column="customer_level" jdbcType="TINYINT" property="customerLevel" />
+    <result column="level_name" jdbcType="VARCHAR" property="levelName" />
+    <result column="min_point" jdbcType="INTEGER" property="minPoint" />
+    <result column="max_point" jdbcType="INTEGER" property="maxPoint" />
+    <result column="modified_time" jdbcType="TIMESTAMP" property="modifiedTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    customer_level, level_name, min_point, max_point, modified_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Byte" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from customer_level_inf
+    where customer_level = #{customerLevel,jdbcType=TINYINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Byte">
+    <!--@mbg.generated-->
+    delete from customer_level_inf
+    where customer_level = #{customerLevel,jdbcType=TINYINT}
+  </delete>
+  <insert id="insert" keyColumn="customer_level" keyProperty="customerLevel" parameterType="com.domain.CustomerLevelInf" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into customer_level_inf (level_name, min_point, max_point, 
+      modified_time)
+    values (#{levelName,jdbcType=VARCHAR}, #{minPoint,jdbcType=INTEGER}, #{maxPoint,jdbcType=INTEGER}, 
+      #{modifiedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="customer_level" keyProperty="customerLevel" parameterType="com.domain.CustomerLevelInf" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into customer_level_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="levelName != null">
+        level_name,
+      </if>
+      <if test="minPoint != null">
+        min_point,
+      </if>
+      <if test="maxPoint != null">
+        max_point,
+      </if>
+      <if test="modifiedTime != null">
+        modified_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="levelName != null">
+        #{levelName,jdbcType=VARCHAR},
+      </if>
+      <if test="minPoint != null">
+        #{minPoint,jdbcType=INTEGER},
+      </if>
+      <if test="maxPoint != null">
+        #{maxPoint,jdbcType=INTEGER},
+      </if>
+      <if test="modifiedTime != null">
+        #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.domain.CustomerLevelInf">
+    <!--@mbg.generated-->
+    update customer_level_inf
+    <set>
+      <if test="levelName != null">
+        level_name = #{levelName,jdbcType=VARCHAR},
+      </if>
+      <if test="minPoint != null">
+        min_point = #{minPoint,jdbcType=INTEGER},
+      </if>
+      <if test="maxPoint != null">
+        max_point = #{maxPoint,jdbcType=INTEGER},
+      </if>
+      <if test="modifiedTime != null">
+        modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where customer_level = #{customerLevel,jdbcType=TINYINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.domain.CustomerLevelInf">
+    <!--@mbg.generated-->
+    update customer_level_inf
+    set level_name = #{levelName,jdbcType=VARCHAR},
+      min_point = #{minPoint,jdbcType=INTEGER},
+      max_point = #{maxPoint,jdbcType=INTEGER},
+      modified_time = #{modifiedTime,jdbcType=TIMESTAMP}
+    where customer_level = #{customerLevel,jdbcType=TINYINT}
+  </update>
+</mapper>
