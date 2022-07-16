@@ -1,0 +1,11 @@
+server:
+  port: 23300
+
+spring:
+  application:
+    name: eureka-23300
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false

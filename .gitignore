@@ -45,3 +45,11 @@
 **/package-lock.json
 
 **/*.iml
+**/gradlew.bat
+**/gradlew
+**/gradle
+**/gradle/wrapper/gradle-wrapper.jar
+**/gradle/wrapper/gradle-wrapper.properties
+
+**/mvnw
+**/mvnw.cmd
