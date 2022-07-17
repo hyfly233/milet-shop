@@ -28,6 +28,9 @@ public class ProductCategoryController {
      */
     @PostMapping
     public ResultVo<String> create(CreateCategoryDto dto) {
-        categoryService.createProductCategory(dto);
+        int i = categoryService.createProductCategory(dto);
+
+        // todo
+        return new ResultVo<>(i > 0 ? "创建成功" : "创建失败");
     }
 }

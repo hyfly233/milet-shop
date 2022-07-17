@@ -16,12 +16,12 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
     ProductCategoryMapper categoryMapper;
 
     @Override
-    public void createProductCategory(CreateCategoryDto dto) {
+    public int createProductCategory(CreateCategoryDto dto) {
 
         ProductCategory category = CreateCategoryDto.invert(dto);
         // todo 雪花算法生成 id
         category.setModifiedTime(new Date());
         category.setCategoryStatus(CategoryStatusEnum.AVAILABLE.getVal());
-        categoryMapper.insert(category);
+        return categoryMapper.insert(category);
     }
 }
