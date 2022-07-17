@@ -21,13 +21,13 @@ public class ResultVo<T extends Serializable> implements Serializable {
     ResultVo() {
     }
 
-    private ResultVo(T data) {
+    public ResultVo(T data) {
         this.code = 200;
         this.msg = "SUCCESS";
         this.data = data;
     }
 
-    private ResultVo(Integer code, String msg, T data) {
+    public ResultVo(Integer code, String msg, T data) {
         this.code = code;
         this.msg = msg;
         this.data = data;

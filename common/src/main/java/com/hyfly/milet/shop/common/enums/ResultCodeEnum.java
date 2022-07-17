@@ -7,9 +7,9 @@ public enum ResultCodeEnum {
     SUCCESS(200, "成功"),
     ERROR(201, "失败");
 
-    private Integer code;
+    private final Integer code;
 
-    private String message;
+    private final String message;
 
     ResultCodeEnum(Integer code, String message) {
         this.code = code;
@@ -41,6 +41,4 @@ public enum ResultCodeEnum {
         }
         return null;
     }
-
-
 }
