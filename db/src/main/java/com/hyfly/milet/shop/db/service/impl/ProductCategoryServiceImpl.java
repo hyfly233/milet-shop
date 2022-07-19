@@ -3,6 +3,7 @@ package com.hyfly.milet.shop.db.service.impl;
 import com.hyfly.milet.shop.common.dto.CreateCategoryDto;
 import com.hyfly.milet.shop.common.enums.CategoryStatusEnum;
 import com.hyfly.milet.shop.common.po.product.ProductCategory;
+import com.hyfly.milet.shop.common.vo.ProductCategoryVo;
 import com.hyfly.milet.shop.db.dao.product.ProductCategoryMapper;
 import com.hyfly.milet.shop.db.service.ProductCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,12 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
     @Autowired
     ProductCategoryMapper categoryMapper;
 
+
+    @Override
+    public ProductCategoryVo getProductCategory(Short id) {
+        return categoryMapper.selectByPrimaryKey(id);
+    }
+
     @Override
     public int createProductCategory(CreateCategoryDto dto) {
 
@@ -24,4 +31,5 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
         category.setCategoryStatus(CategoryStatusEnum.AVAILABLE.getVal());
         return categoryMapper.insert(category);
     }
+
 }
