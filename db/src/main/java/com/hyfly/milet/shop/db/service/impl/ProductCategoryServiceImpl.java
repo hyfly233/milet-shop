@@ -19,7 +19,17 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 
     @Override
     public ProductCategoryVo getProductCategory(Short id) {
-        return categoryMapper.selectByPrimaryKey(id);
+        ProductCategory category = categoryMapper.selectByPrimaryKey(id);
+
+        return ProductCategoryVo.builder()
+                .categoryId(category.getCategoryId())
+                .categoryCode(category.getCategoryCode())
+                .categoryLevel(category.getCategoryLevel())
+                .categoryName(category.getCategoryName())
+                .categoryStatus(category.getCategoryStatus())
+                .modifiedTime(category.getModifiedTime())
+                .parentId(category.getParentId())
+                .build();
     }
 
     @Override

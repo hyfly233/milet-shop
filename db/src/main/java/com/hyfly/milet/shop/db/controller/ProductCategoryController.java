@@ -7,6 +7,9 @@ import com.hyfly.milet.shop.db.service.ProductCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+import java.util.List;
+
 @RestController
 @RequestMapping("/product/category")
 public class ProductCategoryController {
@@ -15,10 +18,19 @@ public class ProductCategoryController {
     ProductCategoryService categoryService;
 
     @GetMapping("/{id}")
-    public ResultVo<ProductCategoryVo> category(@PathVariable("id") String id) {
+    public ResultVo<ProductCategoryVo> category(@PathVariable("id") Short id) {
         return new ResultVo<>(categoryService.getProductCategory(id));
     }
 
+    @GetMapping("/list")
+    public <T> List<T> category() {
+        return Collections.emptyList();
+    }
+
+    @GetMapping("/tree")
+    public <T> List<T> categoryTree() {
+        return Collections.emptyList();
+    }
 
     /**
      * 创建商品分类表
@@ -31,5 +43,15 @@ public class ProductCategoryController {
 
         // todo
         return new ResultVo<>(i > 0 ? "创建成功" : "创建失败");
+    }
+
+    @PutMapping
+    public void put(CreateCategoryDto dto) {
+
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Short id) {
+
     }
 }
